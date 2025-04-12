@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Add New Planet</h2>
+    <form method="POST">
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Size (in thousand km)</label>
+            <input type="number" step="0.1" name="size" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Distance from Star (in million km)</label>
+            <input type="number" step="0.1" name="distance" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Parent Star</label>
+            <select name="star_id" class="form-control" required>
+                {% for star in stars %}
+                    <option value="{{ star.id }}">{{ star.name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <textarea name="description" class="form-control"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Planet</button>
+    </form>
+{% endblock %}

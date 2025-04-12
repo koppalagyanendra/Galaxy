@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Galaxy App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <a class="navbar-brand" href="{{ url_for('galaxy_app.galaxy') }}">Galaxy App</a>
+        <div>
+            <a href="{{ url_for('galaxy_app.add_star') }}" class="btn btn-primary mr-2">Add Star</a>
+            <a href="{{ url_for('galaxy_app.add_planet') }}" class="btn btn-primary">Add Planet</a>
+        </div>
+    </nav>
+    <div class="container mt-4">
+        {% block content %}{% endblock %}
+    </div>
+    <div id="details-modal" class="modal"></div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

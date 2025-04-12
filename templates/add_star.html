@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Add New Star</h2>
+    <form method="POST">
+        <div class="form-group">
+            <label>Name</label>
+            <input type="text" name="name" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Size (in million km)</label>
+            <input type="number" step="0.1" name="size" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Distance from Earth (in light years)</label>
+            <input type="number" step="0.1" name="distance" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label>Description</label>
+            <textarea name="description" class="form-control"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Add Star</button>
+    </form>
+{% endblock %}

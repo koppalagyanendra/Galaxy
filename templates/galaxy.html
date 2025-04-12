@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="galaxy-view">
+        {% for star in stars %}
+            <div class="star" data-id="{{ star.id }}" style="
+                left: {{ star.distance / 25 }}%;
+                top: 50%;
+                width: {{ star.size / 10 }}px;
+                height: {{ star.size / 10 }}px;
+                transform: translate(-50%, -50%);
+                background-color: yellow;
+            "></div>
+        {% endfor %}
+
+        {% for planet in planets %}
+            <div class="planet" data-id="{{ planet.id }}" data-name="{{ planet.name }}" style="
+                left: {{ planet.distance_from_star / 40 }}%;
+                top: {{ 40 + (loop.index0 * 7) }}%;
+                width: {{ planet.size / 2 }}px;
+                height: {{ planet.size / 2 }}px;
+                transform: translate(-50%, -50%);
+                background-color: {{ planet.color }};
+            "></div>
+        {% endfor %}
+    </div>
+
+    <!-- Modal for displaying details -->
+    <div id="details-modal" class="modal" style="display: none;">
+        <h3>Loading...</h3>
+        <button onclick="this.parentElement.style.display='none'">Close</button>
+    </div>
+{% endblock %}
